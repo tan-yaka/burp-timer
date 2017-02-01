@@ -6,6 +6,6 @@ SerialVersion: 0
 MinPlatformVersion: 0
 ProOnly: False
 Author: Nick Taylor
-ShortDescription: Time requests/responses
+ShortDescription: Captures response times for requests made by all Burp tools.
 EntryPoint: build/libs/request-timer-all.jar
 BuildCommand: gradle fatJar
