@@ -1,0 +1,11 @@
+Uuid: 56675bcf2a804d3096465b2868ec1d65
+ExtensionType: 1
+Name: Request Timer
+ScreenVersion: 1.0
+SerialVersion: 0
+MinPlatformVersion: 0
+ProOnly: False
+Author: Nick Taylor
+ShortDescription: Time requests/responses
+EntryPoint: build/libs/request-timer-all.jar
+BuildCommand: gradle fatJar
