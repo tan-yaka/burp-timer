@@ -25,6 +25,7 @@
 package burp;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -44,7 +45,7 @@ public class LogTableModel extends AbstractTableModel {
     @Override
     public int getColumnCount() {
 
-        return 5;
+        return 6;
     }
 
     @Override
@@ -52,14 +53,16 @@ public class LogTableModel extends AbstractTableModel {
 
         switch (columnIndex) {
             case 0:
-                return "Tool";
+                return "Timestamp";
             case 1:
-                return "Request URL";
+                return "Tool";
             case 2:
-                return "MIME Type";
+                return "Request URL";
             case 3:
-                return "Response Time (ms)";
+                return "MIME Type";
             case 4:
+                return "Response Time (ms)";
+            case 5:
                 return "HTTP Status";
             default:
                 return "";
@@ -77,8 +80,10 @@ public class LogTableModel extends AbstractTableModel {
             case 2:
                 return String.class;
             case 3:
-                return Long.class;
+                return String.class;
             case 4:
+                return Long.class;
+            case 5:
                 return Short.class;
             default:
                 return Object.class;
@@ -92,14 +97,16 @@ public class LogTableModel extends AbstractTableModel {
 
         switch (columnIndex) {
             case 0:
-                return logEntry.tool;
+                return logEntry.timestamp;
             case 1:
-                return logEntry.url.toString();
+                return logEntry.tool;
             case 2:
-                return logEntry.mimeType;
+                return logEntry.url.toString();
             case 3:
-                return logEntry.time;
+                return logEntry.mimeType;
             case 4:
+                return logEntry.time;
+            case 5:
                 return logEntry.status;
             default:
                 return "";

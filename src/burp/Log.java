@@ -25,12 +25,16 @@
 package burp;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * Data object containing request info
  */
 class Log {
 
+    final LocalDateTime timestamp;
     final String tool;
     final IHttpRequestResponsePersisted requestResponse;
     final URL url;
@@ -41,6 +45,7 @@ class Log {
     /**
      * Constructor
      *
+     * @param timestamp time of request
      * @param tool originating tool
      * @param requestResponse <code>IHttpRequestResponsePersisted</code> object
      * @param url request URL
@@ -48,8 +53,9 @@ class Log {
      * @param mimeType stated MIME type
      * @param time time taken
      */
-    Log(String tool, IHttpRequestResponsePersisted requestResponse, URL url, short status, String mimeType, long time) {
+    Log(LocalDateTime timestamp, String tool, IHttpRequestResponsePersisted requestResponse, URL url, short status, String mimeType, long time) {
 
+        this.timestamp = timestamp;
         this.tool = tool;
         this.requestResponse = requestResponse;
         this.url = url;

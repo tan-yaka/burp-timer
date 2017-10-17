@@ -26,6 +26,9 @@ package burp;
 
 import java.io.PrintWriter;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -40,7 +43,7 @@ public class BurpExtender implements IBurpExtender, IHttpListener {
     private boolean isRunning = false;
     private int toolFilter = 0;
 
-    private PrintWriter stdout;
+    //private PrintWriter stdout;
 
     /**
      * Called when plugin is loaded
@@ -50,7 +53,7 @@ public class BurpExtender implements IBurpExtender, IHttpListener {
     @Override
     public void registerExtenderCallbacks(final IBurpExtenderCallbacks callbacks) {
 
-        stdout = new PrintWriter(callbacks.getStdout(), true);
+        //stdout = new PrintWriter(callbacks.getStdout(), true);
         // keep a reference to our callbacks object
         BurpExtender.callbacks = callbacks;
         // obtain an extension helpers object
@@ -145,7 +148,8 @@ public class BurpExtender implements IBurpExtender, IHttpListener {
      */
     private void addLog(IHttpRequestResponse messageInfo, int toolFlag, long time, int row) {
 
-        panel.getLogTableModel().getLogArray().add(new Log(callbacks.getToolName(toolFlag),
+        panel.getLogTableModel().getLogArray().add(new Log(LocalDateTime.now(),
+                                                           callbacks.getToolName(toolFlag),
                                                            callbacks.saveBuffersToTempFiles(messageInfo),
                                                            helpers.analyzeRequest(messageInfo).getUrl(),
                                                            helpers.analyzeResponse(messageInfo.getResponse()).getStatusCode(),
