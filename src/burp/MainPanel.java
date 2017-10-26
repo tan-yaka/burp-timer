@@ -83,24 +83,26 @@ public class MainPanel extends JPanel implements ITab {
         JComboBox<String> toolList = new JComboBox<>(tools);
         toolList.addActionListener(e -> {
             String tool = (String) ((JComboBox) e.getSource()).getSelectedItem();
-            switch (tool) {
-                case "All":
-                    extender.setToolFilter(0);
-                    break;
-                case "Proxy":
-                    extender.setToolFilter(IBurpExtenderCallbacks.TOOL_PROXY);
-                    break;
-                case "Intruder":
-                    extender.setToolFilter(IBurpExtenderCallbacks.TOOL_INTRUDER);
-                    break;
-                case "Scanner":
-                    extender.setToolFilter(IBurpExtenderCallbacks.TOOL_SCANNER);
-                    break;
-                case "Repeater":
-                    extender.setToolFilter(IBurpExtenderCallbacks.TOOL_REPEATER);
-                    break;
-                default:
-                    throw new RuntimeException("Unknown tool: " + tool);
+            if (tool != null) {
+                switch (tool) {
+                    case "All":
+                        extender.setToolFilter(0);
+                        break;
+                    case "Proxy":
+                        extender.setToolFilter(IBurpExtenderCallbacks.TOOL_PROXY);
+                        break;
+                    case "Intruder":
+                        extender.setToolFilter(IBurpExtenderCallbacks.TOOL_INTRUDER);
+                        break;
+                    case "Scanner":
+                        extender.setToolFilter(IBurpExtenderCallbacks.TOOL_SCANNER);
+                        break;
+                    case "Repeater":
+                        extender.setToolFilter(IBurpExtenderCallbacks.TOOL_REPEATER);
+                        break;
+                    default:
+                        throw new RuntimeException("Unknown tool: " + tool);
+                }
             }
         });
         controlPanel.add(toolList);

@@ -36,7 +36,7 @@ class Log {
 
     final LocalDateTime timestamp;
     final String tool;
-    final IHttpRequestResponsePersisted requestResponse;
+    final IHttpRequestResponse requestResponse;
     final URL url;
     final long time;
     final short status;
@@ -47,13 +47,13 @@ class Log {
      *
      * @param timestamp time of request
      * @param tool originating tool
-     * @param requestResponse <code>IHttpRequestResponsePersisted</code> object
+     * @param requestResponse <code>IHttpRequestResponse</code> object
      * @param url request URL
      * @param status HTTP status
      * @param mimeType stated MIME type
      * @param time time taken
      */
-    Log(LocalDateTime timestamp, String tool, IHttpRequestResponsePersisted requestResponse, URL url, short status, String mimeType, long time) {
+    Log(LocalDateTime timestamp, String tool, IHttpRequestResponse requestResponse, URL url, short status, String mimeType, long time) {
 
         this.timestamp = timestamp;
         this.tool = tool;
