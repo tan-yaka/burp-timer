@@ -26,9 +26,7 @@ package burp;
 
 import java.io.PrintWriter;
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -150,7 +148,7 @@ public class BurpExtender implements IBurpExtender, IHttpListener {
 
         panel.getLogTableModel().getLogArray().add(new Log(LocalDateTime.now(),
                                                            callbacks.getToolName(toolFlag),
-                                                           messageInfo,
+                                                           callbacks.saveBuffersToTempFiles(messageInfo),
                                                            helpers.analyzeRequest(messageInfo).getUrl(),
                                                            helpers.analyzeResponse(messageInfo.getResponse()).getStatusCode(),
                                                            helpers.analyzeResponse(messageInfo.getResponse()).getStatedMimeType(),

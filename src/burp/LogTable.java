@@ -78,7 +78,7 @@ public class LogTable extends JTable implements IMessageEditorController {
     @Override
     public void changeSelection(int row, int col, boolean toggle, boolean extend) {
         // show the log entry for the selected row
-        Log logEntry = logTableModel.getLogArray().get(row);
+        Log logEntry = logTableModel.getLogArray().get(convertRowIndexToModel(row));
         requestViewer.setMessage(logEntry.requestResponse.getRequest(), true);
         responseViewer.setMessage(logEntry.requestResponse.getResponse(), false);
         currentlyDisplayedItem = logEntry.requestResponse;
