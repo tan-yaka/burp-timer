@@ -1,6 +1,7 @@
 Uuid: 56675bcf2a804d3096465b2868ec1d65
 ExtensionType: 1
 Name: Request Timer
+RepoName: request-timer
 ScreenVersion: 1.0.2
 SerialVersion: 1
 MinPlatformVersion: 0
